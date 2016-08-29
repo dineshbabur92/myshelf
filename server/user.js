@@ -38,7 +38,23 @@ module.exports = new mongoose.Schema({
         min: 1
       }
     }]
-  }
+  },
+    friends: [{
+        user: {
+            type: mongoose.Schema.Types.ObjectId
+        }
+    }]
+    ,
+    followers: [{
+        user: {
+            type: mongoose.Schema.Types.ObjectId
+        }
+    }]
+    ,
+    created_at: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports.set('toObject', { virtuals: true });
